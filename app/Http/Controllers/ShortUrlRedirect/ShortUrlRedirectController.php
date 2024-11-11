@@ -16,15 +16,8 @@ class ShortUrlRedirectController extends Controller
             return abort(404);
         }
 
-        // Deteksi apakah crawler
-        $isCrawler = preg_match('/facebookexternalhit|Twitterbot|WhatsApp|Slackbot/', request()->userAgent());
-
-        if ($isCrawler && $url->film) {
-            return view('redirect', compact('url'));
-        }
-
         // Jika bukan crawler, increment hits dan redirect
         $url->increment('hits');
-        return redirect($url->url);
+        return view('redirect', compact('url'));
     }
 }
