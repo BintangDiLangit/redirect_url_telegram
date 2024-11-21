@@ -4,13 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta property="og:title" content="{{ $url->title }}">
-    <meta property="og:description" content="{{ asset('storage/' . $url->banner_image) }}">
     <meta property="og:image" content="{{ asset('storage/' . $url->banner_image) }}">
-    <meta http-equiv="refresh" content="1;url={{ $url->url }}">
     <title>Redirecting...</title>
 </head>
 
 <body>
+    <div id="loading"
+        style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif;">
+        <p>Redirecting you to your destination...</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = "{{ $url->url }}";
+            }, 100);
+        };
+    </script>
 </body>
 
 </html>
