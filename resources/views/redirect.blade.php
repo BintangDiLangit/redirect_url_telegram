@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta property="og:title" content="{{ $url->title }}">
+    <meta property="og:description" content="{{ env('APP_URL') . '/storage/' . $url->banner_image }}">
     <meta property="og:image" content="{{ env('APP_URL') . '/storage/' . $url->banner_image }}">
     <title>Redirecting...</title>
 </head>
